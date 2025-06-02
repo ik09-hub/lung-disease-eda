@@ -1,11 +1,11 @@
 
 # Lung Disease EDA Dashboard
 
-This beginner-friendly data science project performs exploratory data analysis (EDA) on a skin disease dataset. The goal is to extract insights and build a basic dashboard for visualizing patient characteristics and diagnoses.
+This beginner-friendly data science project performs exploratory data analysis (EDA) on a lung disease dataset. The goal is to extract insights and build a basic dashboard for visualizing patient characteristics and diagnoses.
 
 ## Dataset
 
-- Source: [Kaggle - Skin Diseases](https://www.kaggle.com/datasets/samikshadalvi/lungs-diseases-dataset/data)
+- Source: [Kaggle - Lung Diseases](https://www.kaggle.com/datasets/samikshadalvi/lungs-diseases-dataset/data)
 
 ## Folders
 
