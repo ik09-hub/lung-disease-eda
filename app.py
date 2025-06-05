@@ -103,7 +103,7 @@ elif section == "📊 EDA":
             st.image("output/lung_capacity_distribution.png")
         with col2:
             st.subheader("Lung Capacity vs Recovery")
-            st.image("output/lung_capacity_by_recovered_distribution.png")
+            st.image("output/lung_capacity_by_recovered.png")
             
         st.subheader("Lung Capacity Binned")
         plot_count_by_recovered(df, "LungCapacity_Level")
