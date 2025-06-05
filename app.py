@@ -12,6 +12,19 @@ def load_data():
 
 df = load_data()
 
+def plot_count(df, feature):
+    fig1, ax1 = plt.subplots()
+    sns.countplot(data=df, x=feature, order=df[feature].value_counts().index, ax=ax1)
+    ax1.set_title(f"{feature} Distribution")
+    plt.xticks(rotation=45)
+    st.pyplot(fig1)
+
+def plot_count_by_recovered(df, feature):
+    fig2, ax2 = plt.subplots()
+    sns.countplot(data=df, x=feature, hue="Recovered", order=df[feature].value_counts().index, ax=ax2)
+    ax2.set_title(f"{feature} vs Recovery")
+    plt.xticks(rotation=45)
+    st.pyplot(fig2)
 # Sidebar
 st.sidebar.title("Navigation")
 section = st.sidebar.radio("Go to:", ["🏠 Introduction", "📊 EDA", "🤖 Model Results", "🌲 Feature Importance", "🧠 Reflection"])
@@ -27,11 +40,75 @@ if section == "🏠 Introduction":
 # ---------------------
 elif section == "📊 EDA":
     st.header("Exploratory Data Analysis")
-    st.subheader("Recovery Counts")
-    st.bar_chart(df["Recovered"].value_counts())
 
-    st.subheader("Recovery by Disease Type")
-    st.bar_chart(df.groupby("Disease Type")["Recovered"].value_counts().unstack())
+    with st.expander("1. Age"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Age Distribution")
+            plot_count(df, "Age")
+        with col2:
+            st.subheader("Age vs Recovery")
+            plot_count_by_recovered(df, "Age")       
+        st.subheader("Age Groups Binned")
+        plot_count_by_recovered(df, "Age Group")
+    
+    with st.expander("2. Gender"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Gender Distribution")
+            plot_count(df, "Gender")
+        with col2:
+            st.subheader("Gender vs Recovery")
+            plot_count_by_recovered (df, "Gender")
+    with st.expander("3. Smoking Status"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Smoking Status Distribution")
+            plot_count(df, "Smoking Status")
+        with col2:
+            st.subheader("Smoking Status vs Recovery")
+            plot_count_by_recovered (df, "Smoking Status")
+    with st.expander("4. Disease Type"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Disease Type Distribution")
+            plot_count(df, "Disease Type")
+        with col2:
+            st.subheader("Disease Type vs Recovery")
+            plot_count_by_recovered (df, "Disease Type")
+    with st.expander("5. Treatment Type"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Treatment Type Distribution")
+            plot_count(df, "Treatment Type")
+        with col2:
+            st.subheader("Treatment Type vs Recovery")
+            plot_count_by_recovered (df, "Treatment Type")      
+    with st.expander("6. Hospital Visits"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Hospital Visits Distribution")
+            plot_count(df, "Hospital Visits")
+        with col2:
+            st.subheader("Hospital Visits vs Recovery")
+            plot_count_by_recovered (df, "Hospital Visits")  
+            
+        st.subheader("Hospital Visits Binned")
+        plot_count_by_recovered(df, "Visit Tier")
+
+    with st.expander("7. Lung Capacity"):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Lung Capacity Distribution")
+            plot_count(df, "Lung Capacity")
+        with col2:
+            st.subheader("Lung Capacity vs Recovery")
+            plot_count_by_recovered (df, "Lung Capacity")  
+            
+        st.subheader("Lung Capacity Binned")
+        plot_count_by_recovered(df, "Lung Capacity Level")
+
+
 
 # ---------------------
 elif section == "🤖 Model Results":
