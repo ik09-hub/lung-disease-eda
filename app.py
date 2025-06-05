@@ -37,14 +37,14 @@ if section == "🏠 Introduction":
     Welcome to this interactive dashboard!  
     Here’s what you’ll find:
 
-        - 📊 **EDA** — Explore distributions by age, gender, smoking status, etc.  
-        - 🤖 **Model Results** — See how logistic regression and random forest perform  
-        - 🌲 **Feature Importance** — Understand which features mattered most  
-        - 🧠 **Reflection** — Honest analysis on model limitations and insights
+        - 📊 EDA — Explore distributions by age, gender, smoking status, etc.  
+        - 🤖 Model Results — See how logistic regression and random forest perform  
+        - 🌲 Feature Importance — Understand which features mattered most  
+        - 🧠 Reflection — Honest analysis on model limitations and insights
 
     ---
     """)
-    
+
     st.markdown("> *Can we predict who recovers from lung disease using basic clinical data?* This project explores that question using real-world patient information.")
 
 
