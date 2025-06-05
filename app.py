@@ -45,10 +45,10 @@ elif section == "📊 EDA":
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("Age Distribution")
-            plot_count(df, "Age")
+            st.image("../output/age_distribution.png")
         with col2:
             st.subheader("Age vs Recovery")
-            plot_count_by_recovered(df, "Age")       
+            st.image("../output/age_distribution_by_recovered.png")       
         st.subheader("Age Groups Binned")
         plot_count_by_recovered(df, "Age Group")
     
@@ -94,7 +94,7 @@ elif section == "📊 EDA":
             plot_count_by_recovered (df, "Hospital Visits")  
             
         st.subheader("Hospital Visits Binned")
-        plot_count_by_recovered(df, "Visit Tier")
+        plot_count_by_recovered(df, "Visit_Tier")
 
     with st.expander("7. Lung Capacity"):
         col1, col2 = st.columns(2)
@@ -106,7 +106,7 @@ elif section == "📊 EDA":
             plot_count_by_recovered (df, "Lung Capacity")  
             
         st.subheader("Lung Capacity Binned")
-        plot_count_by_recovered(df, "Lung Capacity Level")
+        plot_count_by_recovered(df, "LungCapacity_Level")
 
 
 
