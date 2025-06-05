@@ -45,10 +45,10 @@ elif section == "📊 EDA":
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("Age Distribution")
-            st.image("../output/age_distribution.png")
+            st.image("output/age_distribution.png")
         with col2:
             st.subheader("Age vs Recovery")
-            st.image("../output/age_distribution_by_recovered.png")       
+            st.image("output/age_distribution_by_recovered.png")       
         st.subheader("Age Groups Binned")
         plot_count_by_recovered(df, "Age Group")
     
