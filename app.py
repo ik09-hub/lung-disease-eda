@@ -31,11 +31,23 @@ section = st.sidebar.radio("Go to:", ["🏠 Introduction", "📊 EDA", "🤖 Mod
 
 # ---------------------
 if section == "🏠 Introduction":
-    st.title("Lung Disease Recovery Prediction")
+    st.title("🫁 Lung Disease Recovery Prediction")
+
     st.markdown("""
-    This dashboard explores a patient dataset to examine whether we can predict recovery from lung disease.
-    I applied logistic regression and random forest models and evaluated their performance based on precision, recall, and AUC.
+    Welcome to this interactive dashboard!  
+    Here’s what you’ll find:
+
+        - 📊 **EDA** — Explore distributions by age, gender, smoking status, etc.  
+        - 🤖 **Model Results** — See how logistic regression and random forest perform  
+        - 🌲 **Feature Importance** — Understand which features mattered most  
+        - 🧠 **Reflection** — Honest analysis on model limitations and insights
+
+    ---
     """)
+    
+    st.markdown("> *Can we predict who recovers from lung disease using basic clinical data?* This project explores that question using real-world patient information.")
+
+
 
 # ---------------------
 elif section == "📊 EDA":
