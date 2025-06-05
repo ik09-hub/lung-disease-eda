@@ -40,6 +40,9 @@ if section == "🏠 Introduction":
 # ---------------------
 elif section == "📊 EDA":
     st.header("Exploratory Data Analysis")
+    st.markdown("""    
+    This section visualizes key features in the dataset to understand their distributions and relationships with recovery status.
+    """)
 
     with st.expander("1. Age"):
         col1, col2 = st.columns(2)
@@ -108,26 +111,51 @@ elif section == "📊 EDA":
         st.subheader("Lung Capacity Binned")
         plot_count_by_recovered(df, "LungCapacity_Level")
 
-
+    st.markdown("""After exploring these features, we can see that: there is not a significant 
+                difference in recovery rates across these different featues. This suggests a poor correlation
+                between these features and the recovery outcome. The next step is to apply machine learning models to see if we can find any patterns.""")
 
 # ---------------------
 elif section == "🤖 Model Results":
     st.header("Model Results Summary")
     st.markdown("""
-    **Logistic Regression**  
+    This section summarizes the performance of the logistic regression and random forest 
+    models applied to predict recovery from lung disease.
+    """)
+    st.markdown("""
+    **Logistic Regression**
+    - Accuracy: 0.55
+    - Precision: 0.55
+    - Recall: 0.58  
     - F1 Score: 0.56  
     - ROC AUC: 0.55  
 
     **Random Forest**  
+    - Accuracy: 0.49
+    - Precision: 0.49
+    - Recall: 0.49
     - F1 Score: 0.49  
     - ROC AUC: 0.52  
     """)
+
+    st.markdown(""" As seen above, both models performed similarly, with logistic regression slightly outperforming random forest.
+    The ROC AUC scores indicate that both models are only slightly better than random guessing. Even despite implementing random forest 
+                which is typically more robust to overfitting, the results are not promising.
+    This suggests that the features in the dataset may not have a strong signal for predicting recovery.""")
+
     st.image("output/confusion_matrix_logreg.png", caption="Confusion Matrix: Logistic Regression")
     st.image("output/confusion_matrix_rf.png", caption="Confusion Matrix: Random Forest")
 
+    st.markdown("""The confusion matrices show that both models struggle to correctly classify the positive class (recovered patients),
+    with many false negatives. This indicates that the models are not effectively capturing the patterns needed to predict recovery accurately.""")
 # ---------------------
 elif section == "🌲 Feature Importance":
     st.header("Feature Importance (Random Forest)")
+
+    st.markdown("""This section visualizes the feature importance scores from the random forest model.
+    Feature importance helps us understand which features contribute most to the model's predictions. 
+    From the random forest model, we can see that the most important features are lung capacity, age, and hospital visits.
+    However, the overall performance of the model is still quite low, indicating that these features may not have a strong predictive power for recovery.""")
     st.image("output/feature_importance_rf.png")
 
 # ---------------------
@@ -143,5 +171,10 @@ elif section == "🧠 Reflection":
     Future steps:
     - Try SMOTE for class balancing
     - Incorporate richer clinical features
+    
+    Conclusions:
+    After exploring the dataset and applying machine learning models, it is clear that the current features do not provide a strong signal for predicting recovery from lung disease.
+    The models struggled to differentiate between recovered and non-recovered patients, resulting in low accuracy and AUC scores. Even though this project didn't yield a high predictive 
+    performance, it highlights the importance of feature selection and the need for more informative data especially in medical datasets where feature prediction is very difficult. 
     """)
 
